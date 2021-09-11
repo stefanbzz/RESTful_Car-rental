@@ -1,0 +1,745 @@
+{
+	"info": {
+		"_postman_id": "724533f5-16fe-44d0-b418-1125f9e1374e",
+		"name": "milestone 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Stefan",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Future",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{C}}/resource/user/login",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"abgemeldet\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{C}}/resource/user/logout",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login failed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "guestwad",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "weristdas",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{C}}/resource/user/login",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login guest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Guest\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "futnik",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "passwort",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{C}}/resource/user/login",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guest list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"forbidden\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{C}}/resource/car/list",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"car",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guest read",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{C}}/resource/car/read?uuid=c7365af7-95be-44af-8bc5-8d35a4457d4a",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"car",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "c7365af7-95be-44af-8bc5-8d35a4457d4a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guest create car",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rentalUUID",
+							"value": "ecd86148-5341-43c6-81ed-f3f4595965dc",
+							"type": "text"
+						},
+						{
+							"key": "brand",
+							"value": "Mini",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "Cooper",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "lifestyle",
+							"type": "text"
+						},
+						{
+							"key": "color",
+							"value": "red",
+							"type": "text"
+						},
+						{
+							"key": "horsepower",
+							"value": "150",
+							"type": "text"
+						},
+						{
+							"key": "range",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "fuel",
+							"value": "Gas",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{C}}/resource/car/create",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"car",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guest update car",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rentalUUID",
+							"value": "2f968ff7-3cdd-495e-a779-e4630e4be9a2",
+							"type": "text"
+						},
+						{
+							"key": "carUUID",
+							"value": "c7365af7-95be-44af-8bc5-8d35a4457d4a",
+							"type": "text"
+						},
+						{
+							"key": "brand",
+							"value": "BMW",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "iX",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "SUV",
+							"type": "text"
+						},
+						{
+							"key": "color",
+							"value": "blue",
+							"type": "text"
+						},
+						{
+							"key": "horsepower",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "range",
+							"value": "605",
+							"type": "text"
+						},
+						{
+							"key": "fuel",
+							"value": "Electric",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{C}}/resource/car/update",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"car",
+						"update"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guest delete car",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(403);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{C}}/resource/car/delete?uuid=3247c340-c712-402e-b400-0a23a9368c97",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"car",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3247c340-c712-402e-b400-0a23a9368c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"admin\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "Stefan",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Future",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{C}}/resource/user/login",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{C}}/resource/car/list",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"car",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin read",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{C}}/resource/car/read?uuid=c7365af7-95be-44af-8bc5-8d35a4457d4a",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"car",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "c7365af7-95be-44af-8bc5-8d35a4457d4a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin create car",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rentalUUID",
+							"value": "ecd86148-5341-43c6-81ed-f3f4595965dc",
+							"type": "text"
+						},
+						{
+							"key": "brand",
+							"value": "Mini",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "Cooper",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "lifestyle",
+							"type": "text"
+						},
+						{
+							"key": "color",
+							"value": "red",
+							"type": "text"
+						},
+						{
+							"key": "horsepower",
+							"value": "150",
+							"type": "text"
+						},
+						{
+							"key": "range",
+							"value": "400",
+							"type": "text"
+						},
+						{
+							"key": "fuel",
+							"value": "Gas",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{C}}/resource/car/create",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"car",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "rentalUUID",
+							"value": "2f968ff7-3cdd-495e-a779-e4630e4be9a2",
+							"type": "text"
+						},
+						{
+							"key": "carUUID",
+							"value": "c7365af7-95be-44af-8bc5-8d35a4457d4a",
+							"type": "text"
+						},
+						{
+							"key": "brand",
+							"value": "BMW",
+							"type": "text"
+						},
+						{
+							"key": "model",
+							"value": "iX",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "SUV",
+							"type": "text"
+						},
+						{
+							"key": "color",
+							"value": "blue",
+							"type": "text"
+						},
+						{
+							"key": "horsepower",
+							"value": "200",
+							"type": "text"
+						},
+						{
+							"key": "range",
+							"value": "605",
+							"type": "text"
+						},
+						{
+							"key": "fuel",
+							"value": "Electric",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{C}}/resource/car/update",
+					"host": [
+						"{{C}}"
+					],
+					"path": [
+						"resource",
+						"car",
+						"update"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "C",
+			"value": "http://localhost:8080/Car-rental-0.1"
+		}
+	]
+}

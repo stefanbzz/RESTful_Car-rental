@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Stefan Thomsen"/>
+    <meta name="copyright" content="Stefan Thomsen"/>
+    <meta name="project" content="Carrental"/>
+    <title>edit car</title>
+</head>
+<body>
+<form id="careditForm" name="caredit">
+    <h3>Edit Car</h3>
+    <div id="message" style="color: #ff0000;"></div>
+    <button type="button" id="logout">Abmelden</button>
+    <table>
+        <tr>
+            <td><label for="model">Autoname</label></td>
+            <td>
+                <input id="model" name="model" type="text" size="30" minlength="2" maxlength="40" required/>
+                <input id="carUUID" name="carUUID" type="hidden" />
+            </td>
+        </tr>
+        <tr>
+            <td><label for="brand">Brand</label></td>
+            <td><input id="brand" name="brand" type="text" size="30" minlength="1" maxlength="40" required/></td>
+        </tr>
+        <tr>
+            <td><label for="rental">Rental</label></td>
+            <td>
+                <select id="rental" name="rentalUUID" required>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="category">Category</label></td>
+            <td><input id="category" name="category" type="text" size="30" minlength="2" maxlength="40" required/></td>
+        </tr>
+        <tr>
+            <td><label for="color">Color</label></td>
+            <td><input id="color" name="color" type="text" size="30" minlength="3" maxlength="30" required/></td>
+        </tr>
+        <tr>
+            <td><label for="horsepower">Horsepower</label></td>
+            <td><input id="horsepower" name="horsepower" type="number" min="100" max="500" step="10"/></td>
+        </tr>
+        <tr>
+            <td><label for="range">Range</label></td>
+            <td><input id="range" name="range" type="number" min="100" max="10000" step="1"/></td>
+        </tr>
+        <tr>
+            <td><label for="fuel">Fuel</label></td>
+            <td><input id="fuel" name="fuel" type="text" size="30" min="2" max="20"/></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <button id="save" type="submit">Save</button>
+            </td>
+            <td>
+                <button id="reset" type="reset">Reset</button>
+            </td>
+            <td>
+                <button id="cancel" type="button" onclick="window.location.href =
+                'carrental.html';">Cancel</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<script src="js/jquery.js"></script>
+<script src="js/caredit.js"></script>
+<script src="js/checkCookie.js"></script>
+</body>
+</html>

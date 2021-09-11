@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='de'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='author' content='Stefan Thomsen'/>
+    <title>Login</title>
+</head>
+<body>
+<form id='login' name='login'>
+    <h3>Login</h3>
+    <div id='message' style='color: red;'></div>
+    <table>
+        <tr>
+            <td>Benutzername</td>
+            <td><input id='username' name='username' type='text' size='30' minlength="2" maxlength='41' required/></td>
+        </tr>
+        <tr>
+            <td>Passwort</td>
+            <td><input id='password' name='password' type='password' size='30' minlength="5" maxlength='31' required/></td>
+        </tr>
+        <tr>
+            <td>
+                <button id='logon' type='submit'>Login</button>
+            </td>
+        </tr>
+    </table>
+</form>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src='js/login.js'></script>
+</body>
+</html>
